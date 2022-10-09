@@ -1,0 +1,26 @@
+version: '3'
+services:
+ # Nginx server configuration   
+  nginx:
+    image: nginx:latest
+    container_name: webserver
+    volumes:
+      - ./spa:/var/www/html
+      - ./nginx:/etc/nginx/conf.d/
+      - ./logs/nginx:/var/log/nginx/
+    networks:
+      - internal
+    ports:
+      - "9000:80"
+ # Php-fpm configuration
+  php:
+    image: php:7.2-fpm
+    volumes:
+      - ./spa:/var/www/html
+      - ./php:/usr/local/etc/php/php.ini
+      - ./logs/php.log:/var/log/fpm-php.www.log
+    networks:
+      - internal
+networks:
+  internal:
+    driver: bridge
