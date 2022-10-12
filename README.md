@@ -1,14 +1,23 @@
 # Docker Test
+Basic Start with nginx and PHP using docker-compose
 
 # Reference Commands
 
-### Open Shell Commands
+### Usage
 ```bash
+# Start
+sudo docker-compose up
+
+# Stop
+sudo docker-compose down
+```
+### Other Commands
+```bash
+# See Directories and Files
 sudo docker exec -it ___CONTAINER_ID___ /bin/sh
 sudo docker exec -it ___CONTAINER_ID___ /bin/bash
-```
-### Copy
-```bash
+
+#Copy Directories and Files
 sudo docker cp ___CONTAINER_ID___:/ ___LOCAL_COPY_DIRECTORY_PATH___
 ```
 
